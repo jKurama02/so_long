@@ -6,38 +6,46 @@
 #    By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 17:34:16 by anmedyns          #+#    #+#              #
-#    Updated: 2024/06/12 20:20:03 by anmedyns         ###   ########.fr        #
+#    Updated: 2024/06/13 13:34:31 by anmedyns         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = solong.a
+PROG = so_long
 
-SRCS =
+SRCS    =	set_struct_OO.c mapval.c main.c gnl/get_next_line_utils.c gnl/get_next_line.c \
 
-OBJS = ${SRCS:.c=.o}
+OBJS     = ${SRCS:.c=.o}
+MAIN    = main.c
 
-CC		= gcc
-RM		= rm -f
+HEADER    = -Iinclude
 
-CFLAGS = -Wall -Wextra -Werror
+CC         = gcc
+CFLAGS     = -Wall -Wextra -Werror -g
 
-.c.o:
-	${CC} ${CFLAGS} ${HEADER} -Imlx -c $< -o $(<:.c=.o)
+.c.o:        %.o : %.c
+	@gcc ${CFLAGS} ${HEADER} -Imlx -c $< -o $(<:.c=.o)
 
-$(NAME): ${OBJS}
-		ar rcs ${NAME} ${OBJS}
+all:         ${PROG}
 
-all:	${NAME}
+${PROG}:    ${OBJS}
+						@echo "\033[33m----Compiling lib----"
+						@$(CC) ${OBJS} -lmlx -lXext -lX11 -L mlx -o${PROG} printf/libftprintf.a
+						@echo "\033[32mSo Long Compiled!\n"
 
 clean:
-		${RM} ${OBJS} ${OBJSBONUS}
+						@rm -f ${OBJS}
 
-fclean:	clean
-		${RM} ${NAME}
 
-re:		fclean all
+fclean:     clean
+						@rm -f $(NAME)
+						@rm -f ${PROG}
+						@echo "\n\033[31mDeleting EVERYTHING!\n"
 
 git:
 	git add .
 	git commit -m "update"
 	git push
+
+re:            fclean all
+
+.PHONY: all clean fclean re

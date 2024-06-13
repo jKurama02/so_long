@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 18:55:47 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/12 19:28:09 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/13 13:39:49 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,20 @@
 # include "gnl/get_next_line.h"
 # include "mlx/mlx.h"
 
-typedef struct s_game
+typedef struct s_dim
 {
-	t_item	item;
-	void	*mlx;
-	void	*win;
-	t_map	map;
-	int		w;
-	int		h;
-	int		nmoves;
-	int		loop;
-	int		aux_rand;
-}				t_game;
+	void *img;
+	char type;
+	int	posx;
+	int	posy;
+}			t_dim;
 
+typedef struct s_item
+{
+	int	c;
+	int e;
+	int p;
+}			t_item;
 
 typedef struct s_map
 {
@@ -51,20 +52,27 @@ typedef struct s_map
 	t_dim	wall;
 	t_dim	bg;
 }				t_map;
-
-typedef struct s_item
+typedef struct s_game
 {
-	int	c;
-	int e;
-	int p;
-}			t_item;
+	t_item	item;
+	void	*mlx;
+	void	*win;
+	t_map	map;
+	int		w;
+	int		h;
+	int		nmoves;
+	int		loop;
+	int		aux_rand;
+}				t_game;
 
-typedef struct s_dim
-{
-	void *img;
-	char type;
-	int	posx;
-	int	posy;
-}			t_dim;
 
+
+
+
+int main(int argc, char **argv);
+int validate(t_game *g, char **argv);
+int d_matrix(t_map *map);
+int	ft_argcheck(t_game *g);
+int set_game(t_game *game, char *path);
+void set_item(t_item *item);
 #endif

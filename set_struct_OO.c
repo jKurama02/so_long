@@ -6,13 +6,13 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:31:27 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/12 18:09:09 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/13 12:39:26 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int set_game(t_game *game, char *path)
+int set_game(t_game *game,char *path)
 {
 	game->mlx = NULL;
 	game->win = NULL;
