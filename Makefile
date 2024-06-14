@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+         #
+#    By: anmedyns <anmedyns@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 17:34:16 by anmedyns          #+#    #+#              #
-#    Updated: 2024/06/13 13:34:31 by anmedyns         ###   ########.fr        #
+#    Updated: 2024/06/14 15:29:49 by anmedyns         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PROG = so_long
 
-SRCS    =	set_struct_OO.c mapval.c main.c gnl/get_next_line_utils.c gnl/get_next_line.c \
+SRCS    =	set_struct.c mapval.c main.c gnl/get_next_line_utils.c gnl/get_next_line.c \
 
 OBJS     = ${SRCS:.c=.o}
 MAIN    = main.c
@@ -30,7 +30,7 @@ all:         ${PROG}
 ${PROG}:    ${OBJS}
 						@echo "\033[33m----Compiling lib----"
 						@$(CC) ${OBJS} -lmlx -lXext -lX11 -L mlx -o${PROG} printf/libftprintf.a
-						@echo "\033[32mSo Long Compiled!\n"
+						@echo "\033[32mSo Long Compiled!\n	"
 
 clean:
 						@rm -f ${OBJS}

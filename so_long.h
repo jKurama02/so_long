@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: anmedyns <anmedyns@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 18:55:47 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/13 13:39:49 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/14 15:26:09 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include "printf/ft_printf.h"
 # include "gnl/get_next_line.h"
 # include "mlx/mlx.h"
+typedef struct s_item
+{
+	int	c;
+	int e;
+	int p;
+}			t_item;
 
 typedef struct s_dim
 {
@@ -26,13 +32,6 @@ typedef struct s_dim
 	int	posx;
 	int	posy;
 }			t_dim;
-
-typedef struct s_item
-{
-	int	c;
-	int e;
-	int p;
-}			t_item;
 
 typedef struct s_map
 {
@@ -64,6 +63,8 @@ typedef struct s_game
 	int		loop;
 	int		aux_rand;
 }				t_game;
+
+
 
 
 

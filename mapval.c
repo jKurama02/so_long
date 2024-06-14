@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mapval.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: anmedyns <anmedyns@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:09:53 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/13 13:40:51 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:52:44 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ int d_matrix(t_map *map)
 	}
 	free(fil);
 	close(fd);
-	printf("h =%d", map->h);
-	printf("w =%d", map->len)
 	return(1);
 }
 
@@ -50,4 +48,41 @@ int	ft_argcheck(t_game *g)
 			return (1);
 		}
 	return (0);
+}
+
+char **matrix(t_map *map)
+{
+	int i;
+	int fd;
+	char **matrice;
+
+	i = -1;
+	fd = open(map->path, O_RDONLY);
+	if(fd == -1)
+	{
+		return NULL;
+	}
+	
+	matrice = (char**)malloc(sizeof(char *) * (map->h + 1));
+	if(!matrice)
+	{
+		close(fd);
+		return (NULL);
+	}
+	for(i = 0; i < map->h; i++)
+	{
+		matrice[i] = get_next_line(fd);
+		if(!matrice)
+		{
+			while(i > 0)
+				free(matrice[--i]);
+			free(matrice);
+			close(fd);
+			return NULL;
+		}
+	}
+	matrice[map->h] = NULL;
+	close(fd);
+	map->mat = matrice;
+	return(matrice);	
 }

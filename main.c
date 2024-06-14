@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: anmedyns <anmedyns@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:15:12 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/13 13:41:56 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:34:45 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+int validate(t_game *g, char **argv)
+{
+	set_item(&(g->item));
+	set_game(g,argv[1]);
+	if(ft_argcheck(g))
+		return(-1);
+	d_matrix(&g->map);
+	matrix(&g->map);
+}
 
 int main(int argc, char **argv)
 {
@@ -25,14 +34,5 @@ int main(int argc, char **argv)
 	return(0);
 }
 
-int validate(t_game *g, char **argv)
-{
-	set_item(&(g->item));
-	set_game(g,argv[1]);
-	if(ft_argcheck(g))
-		return(-1);
-	d_matrix(&g->map);
-	return (1);
-}
 
 
