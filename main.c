@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:15:12 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/14 17:34:45 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/15 20:02:21 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,12 @@ int validate(t_game *g, char **argv)
 	if(ft_argcheck(g))
 		return(-1);
 	d_matrix(&g->map);
-	matrix(&g->map);
+	matrice(&g->map);
+	if(controllo_quadrato(*g) == -1)
+		return(ft_printf("Errore"));
+	if(controllo_oggetti(&g->map, &g->item) != -1)
+		return(ft_printf("Errore"));
+	return(1);
 }
 
 int main(int argc, char **argv)

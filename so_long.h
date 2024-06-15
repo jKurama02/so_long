@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 18:55:47 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/14 15:26:09 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/15 19:39:31 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include "printf/ft_printf.h"
 # include "gnl/get_next_line.h"
 # include "mlx/mlx.h"
+
+
 typedef struct s_item
 {
 	int	c;
@@ -64,16 +66,18 @@ typedef struct s_game
 	int		aux_rand;
 }				t_game;
 
-
-
-
-
-
-
-int main(int argc, char **argv);
-int validate(t_game *g, char **argv);
+int controllo_quadrato(t_game g);
 int d_matrix(t_map *map);
 int	ft_argcheck(t_game *g);
-int set_game(t_game *game, char *path);
+char **matrice(t_map *map);
+int controllo_quadrato(t_game g);
+int validate(t_game *g, char **argv);
+int set_game(t_game *game,char *path);
 void set_item(t_item *item);
+
+
+
+
+
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:09:53 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/14 17:52:44 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/15 19:41:41 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,12 @@ int	ft_argcheck(t_game *g)
 	return (0);
 }
 
-char **matrix(t_map *map)
+char **matrice(t_map *map)
+
 {
 	int i;
 	int fd;
-	char **matrice;
+	char **matrix;
 
 	i = -1;
 	fd = open(map->path, O_RDONLY);
@@ -63,26 +64,45 @@ char **matrix(t_map *map)
 		return NULL;
 	}
 	
-	matrice = (char**)malloc(sizeof(char *) * (map->h + 1));
-	if(!matrice)
+	matrix = (char**)malloc(sizeof(char *) * (map->h + 1));
+	if(!matrix)
 	{
 		close(fd);
 		return (NULL);
 	}
 	for(i = 0; i < map->h; i++)
 	{
-		matrice[i] = get_next_line(fd);
-		if(!matrice)
+		matrix[i] = get_next_line(fd);
+		if(!matrix)
 		{
 			while(i > 0)
-				free(matrice[--i]);
-			free(matrice);
+				free(matrix[--i]);
+			free(matrix);
 			close(fd);
 			return NULL;
 		}
 	}
-	matrice[map->h] = NULL;
+	matrix[map->h] = NULL;
 	close(fd);
-	map->mat = matrice;
-	return(matrice);	
+	map->mat = matrix;
+	return(matrix);	
+}
+
+int controllo_quadrato(t_game g)
+{
+	int p;
+	int l;
+	
+	p = 0;
+	l = (int)ft_strlen(g.map.mat[p]);
+	
+	while(p < g.map.h)
+	{
+		if((int)ft_strlen(g.map.mat[p]) != l)
+		{
+			return(-1);
+		}
+		p++;
+	}
+	return(1);
 }
