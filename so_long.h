@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmedyns <anmedyns@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 18:55:47 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/15 19:39:31 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/17 19:15:41 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ int controllo_quadrato(t_game g);
 int validate(t_game *g, char **argv);
 int set_game(t_game *game,char *path);
 void set_item(t_item *item);
+int controllo_oggetti(t_map *map, t_item *item);
+int letter_c(t_map *map, int x, int y, t_item *item);
 
 
 

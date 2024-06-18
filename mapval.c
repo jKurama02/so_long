@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mapval.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmedyns <anmedyns@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:09:53 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/15 19:41:41 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/17 19:14:49 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ int d_matrix(t_map *map)
 
 int	ft_argcheck(t_game *g)
 {
-	int	i;
+	int	v;
 
-	i = ft_strlen(g->map.path);
-	if (g->map.path[i - 2] != 'e'
-		|| g->map.path[i - 1] != 'r' || g->map.path[i - 3] != 'b'
-		|| g->map.path[i - 4] != '.')
+	v = ft_strlen(g->map.path);
+	if (g->map.path[v - 2] != 'e'
+		|| g->map.path[v - 1] != 'r' || g->map.path[v - 3] != 'b'
+		|| g->map.path[v - 4] != '.')
 		{
 			ft_printf("inserisci un *.ber");
 			return (1);
@@ -63,7 +63,7 @@ char **matrice(t_map *map)
 	{
 		return NULL;
 	}
-	
+
 	matrix = (char**)malloc(sizeof(char *) * (map->h + 1));
 	if(!matrix)
 	{
@@ -85,17 +85,17 @@ char **matrice(t_map *map)
 	matrix[map->h] = NULL;
 	close(fd);
 	map->mat = matrix;
-	return(matrix);	
+	return(matrix);
 }
 
 int controllo_quadrato(t_game g)
 {
 	int p;
 	int l;
-	
+
 	p = 0;
 	l = (int)ft_strlen(g.map.mat[p]);
-	
+
 	while(p < g.map.h)
 	{
 		if((int)ft_strlen(g.map.mat[p]) != l)
@@ -105,4 +105,27 @@ int controllo_quadrato(t_game g)
 		p++;
 	}
 	return(1);
+}
+
+int controllo_oggetti(t_map *map, t_item *item)
+{
+    int x;
+	int y;
+
+    for (x = 0; x < map->len; x++) {
+        for (y = 0; y < map->h; y++) {
+            if ((x == 0 || x == map->len - 1 || y == 0 || y == map->h - 1) && map->mat[y][x] != '1') {
+                return -1;
+            }
+            if (map->mat[y][x] != 'C' && map->mat[y][x] != 'E' && map->mat[y][x] != 'P' &&
+                map->mat[y][x] != '1' && map->mat[y][x] != '0') {
+                return -1;
+            }
+            letter_c(map, x, y, item);
+        }
+    }
+    if (item->e != 1 || item->p != 1 || item->c < 1) {
+        return -1;
+    }
+    return 1;
 }
