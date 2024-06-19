@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmedyns <anmedyns@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:15:12 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/15 20:02:21 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/19 15:50:13 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ int validate(t_game *g, char **argv)
 	d_matrix(&g->map);
 	matrice(&g->map);
 	if(controllo_quadrato(*g) == -1)
-		return(ft_printf("Errore"));
+		return(ft_printf("Errore controllo_quadrato \n"));
 	if(controllo_oggetti(&g->map, &g->item) != -1)
-		return(ft_printf("Errore"));
+		return(ft_printf("Errore controllo_oggetti \n"));
+	if(percorso_ceck(*g) != 1)
+		return(ft_printf("Errore percorso_ceck \n"));
 	return(1);
 }
 
@@ -33,10 +35,11 @@ int main(int argc, char **argv)
 		return(printf("error"));
 	if(validate(&game, argv) != 1)
 	{
-		printf("Error \n");
+		if(game.map.mat)
+			free_matrix_c(game.map.mat);
 		return(-1);
 	}
-	return(0);
+	
 }
 
 

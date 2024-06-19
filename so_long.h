@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 18:55:47 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/17 19:15:41 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/19 15:43:49 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,9 @@ int set_game(t_game *game,char *path);
 void set_item(t_item *item);
 int controllo_oggetti(t_map *map, t_item *item);
 int letter_c(t_map *map, int x, int y, t_item *item);
-
-
-
-
-
+void free_matrix_c(char **matrix);
+int percorso_ceck(t_game g);
+void percorso_fell(t_game *g, int x, int y);
+char **c_mat(t_game g);
 
 #endif
