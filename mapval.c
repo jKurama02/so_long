@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:09:53 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/17 19:14:49 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/19 13:28:05 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,9 @@ char **matrice(t_map *map)
 		close(fd);
 		return (NULL);
 	}
-	for(i = 0; i < map->h; i++)
+	i = 0;
+
+	while(i < map->h)
 	{
 		matrix[i] = get_next_line(fd);
 		if(!matrix)
@@ -81,6 +83,7 @@ char **matrice(t_map *map)
 			close(fd);
 			return NULL;
 		}
+		i++;
 	}
 	matrix[map->h] = NULL;
 	close(fd);
@@ -109,23 +112,28 @@ int controllo_quadrato(t_game g)
 
 int controllo_oggetti(t_map *map, t_item *item)
 {
-    int x;
+	int x = 0;
 	int y;
 
-    for (x = 0; x < map->len; x++) {
-        for (y = 0; y < map->h; y++) {
-            if ((x == 0 || x == map->len - 1 || y == 0 || y == map->h - 1) && map->mat[y][x] != '1') {
-                return -1;
-            }
-            if (map->mat[y][x] != 'C' && map->mat[y][x] != 'E' && map->mat[y][x] != 'P' &&
-                map->mat[y][x] != '1' && map->mat[y][x] != '0') {
-                return -1;
-            }
-            letter_c(map, x, y, item);
-        }
-    }
-    if (item->e != 1 || item->p != 1 || item->c < 1) {
-        return -1;
-    }
-    return 1;
+	while (x < map->len)
+	{
+		y = 0;
+		while (y < map->h)
+		{
+			if ((x == 0 || x == map->len - 1 || y == 0 || y == map->h - 1) && map->mat[y][x] != '1') {
+				return -1;
+			}
+			if (map->mat[y][x] != 'C' && map->mat[y][x] != 'E' && map->mat[y][x] != 'P' &&
+				map->mat[y][x] != '1' && map->mat[y][x] != '0') {
+				return -1;
+			}
+			letter_c(map, x, y, item);
+			y++;
+		}
+		x++;
+	}
+	if (item->e != 1 || item->p != 1 || item->c < 1) {
+		return -1;
+	}
+	return 1;
 }
