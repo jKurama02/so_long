@@ -6,14 +6,14 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 18:55:47 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/19 15:43:49 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/19 18:59:56 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# define RES 64
+# define RES 128
 
 # include "printf/ft_printf.h"
 # include "gnl/get_next_line.h"
@@ -44,12 +44,9 @@ typedef struct s_map
 	char	*path;
 	int		h;
 	int		len;
-	t_dim	player[4];
-	t_dim	player_to_print;
+	t_dim	player;
 	t_dim	exit;
 	t_dim	coin;
-	t_dim	enemy[2];
-	int		enemy_to_print;
 	t_dim	wall;
 	t_dim	bg;
 }				t_map;
