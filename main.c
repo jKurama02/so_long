@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:15:12 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/19 19:04:05 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/21 19:14:51 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	game.win = mlx_new_window(game.mlx, game.map.len * RES, game.map.h * RES, "So_Long");
 	img_init(&game);
-	
+	print_map(game);
+	mlx_loop_hook();
 }
 
 

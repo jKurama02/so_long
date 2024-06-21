@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_struct_OO.c                                    :+:      :+:    :+:   */
+/*   set_struct.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:31:27 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/13 12:39:26 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/19 23:24:57 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int set_game(t_game *game,char *path)
 	game->nmoves = 0;
 	game->loop = 0;
 	game->aux_rand = 0;
-	game->map.enemy_to_print = 0;
 	return (1);
 }
 

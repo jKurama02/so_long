@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:09:53 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/19 15:04:22 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/21 18:42:29 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int letter_c(t_map *map, int x, int y, t_item *item)
 	else if(map->mat[y][x] == 'P')
 	{
 		item->p++;
-		map->player->posx = x;
-		map->player->posy = y;
+		map->player.posx = x;
+		map->player.posy = y;
 	}
 	else if(map->mat[y][x] == 'C')
 		item->c++;
@@ -57,7 +57,7 @@ void percorso_fell(t_game *g, int x, int y)
 		percorso_fell(g, y, x + 1);
 	if(g->map.copy[y][x - 1] != '1' && g->map.copy[y][x - 1] != 'N')
 		percorso_fell(g, y, x - 1);
-
+	
 }
 
 int percorso_ceck(t_game g)
@@ -67,17 +67,17 @@ int percorso_ceck(t_game g)
 	y = 0;
 
 	g.map.copy = c_mat(g);
-	percorso_fill(&g, g.map.player->posx, g.map.player->posy);
+	percorso_fell(&g, g.map.player.posx, g.map.player.posy);
 	while(y < g.map.h)
 	{
 		if(strchr(g.map.copy[y], 'C') != 0)
-			retunr(-1);
+			return(-1);
 		if(strchr(g.map.copy[y],'E') != 0)
 			return(-1);
 		y++;
 	}
 	free_matrix_c(g.map.mat);
-	retunr(1);
+	return(1);
 }
 
 void free_matrix_c(char **matrix)
@@ -90,5 +90,5 @@ void free_matrix_c(char **matrix)
 		free(matrix[g]);
 		g++;
 	}
-	free(matrice);
+	free(matrix);
 }
