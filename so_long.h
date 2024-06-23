@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 18:55:47 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/23 19:37:29 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/23 20:14:02 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,13 @@ char **c_mat(t_game g);
 void print_map(t_game g);
 void *take_item(t_game game, char c);
 int img_init(t_game *g);
-
+int ft_exit(t_game *g);
 int check_next_move(t_game *g, int y, int x);
+int key_press(int key, t_game *game);
+int w_m(t_game *game);
+int a_m(t_game *game);
+int s_m(t_game *game);
+int d_m(t_game *game);
 
 
 #endif

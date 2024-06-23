@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:15:12 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/23 19:24:28 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/23 20:10:01 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int img_init(t_game *g)
 	return (0);
 }
 
-ft_exit(t_game *g)
+int ft_exit(t_game *g)
 {
 	mlx_destroy_window(g->mlx, g->win);
 	exit(0);
@@ -69,7 +69,7 @@ ft_exit(t_game *g)
 
 int check_next_move(t_game *g, int y, int x)
 {
-	int **mat;
+	char **mat;
 
 	mat = g->map.mat;
 	if(mat[y][x] == 'C')

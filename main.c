@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:15:12 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/23 19:47:47 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/23 20:02:55 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ int main(int argc, char **argv)
 {
 	t_game game;
 	if(argc != 2)
-		return(printf("error"));
+	{
+		ft_printf("give 2 argument, ty");
+		return(-1);
+	}
 	if(validate(&game, argv) != 1)
 	{
 		if(game.map.mat)
@@ -48,7 +51,8 @@ int main(int argc, char **argv)
 	print_map(game);
 	mlx_hook(game.win, 2, 1L << 0, key_press, &game);
 	mlx_hook(game.win, 17, 1L << 0, ft_exit, &game);
-
+	mlx_loop(game.mlx);
+	return(0);
 }
 
 
