@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:15:12 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/21 18:52:03 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/23 19:24:28 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,30 @@ int img_init(t_game *g)
 	g->map.player.img= mlx_xpm_file_to_image(g->mlx, "xpm/P.xpm", &dmx, &dmx);
 	g->map.exit.img = mlx_xpm_file_to_image(g->mlx, "xpm/E.xpm", &dmx, &dmx);
 	return (0);
+}
+
+ft_exit(t_game *g)
+{
+	mlx_destroy_window(g->mlx, g->win);
+	exit(0);
+	return(0);
+}
+
+int check_next_move(t_game *g, int y, int x)
+{
+	int **mat;
+
+	mat = g->map.mat;
+	if(mat[y][x] == 'C')
+	{
+		g->item.c--;
+	}
+	else if(mat[y][x] == 'E')
+	{
+		if(g->item.c == 0)
+			ft_exit(g);
+		else
+			return 0;
+	}
+	return(1);
 }
