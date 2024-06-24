@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 18:55:47 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/23 20:14:02 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/24 19:04:50 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ int w_m(t_game *game);
 int a_m(t_game *game);
 int s_m(t_game *game);
 int d_m(t_game *game);
+int	ft_numlen(long int i);
+char	*ft_itoa(int n);
 
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:15:12 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/23 20:02:55 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/24 19:02:44 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main(int argc, char **argv)
 	t_game game;
 	if(argc != 2)
 	{
-		ft_printf("give 2 argument, ty");
+		ft_printf("give 2 argument, ty \n");
 		return(-1);
 	}
 	if(validate(&game, argv) != 1)
@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 	game.mlx = mlx_init();
 	if(game.mlx == NULL)
 		return (EXIT_FAILURE);
-	game.win = mlx_new_window(game.mlx, game.map.len * RES, game.map.h * RES, "So_Long");
+	game.win = mlx_new_window(game.mlx, game.map.len * RES, (game.map.h) * RES, "So_Long");
 	img_init(&game);
 	print_map(game);
 	mlx_hook(game.win, 2, 1L << 0, key_press, &game);
@@ -55,5 +55,51 @@ int main(int argc, char **argv)
 	return(0);
 }
 
+int	ft_numlen(long int i)
+{
+	int	j;
 
+	j = 0;
+	if (i == 0)
+		return (1);
+	if (i < 0)
+	{
+		i *= -1;
+		j++;
+	}
+	while (i > 0)
+	{
+		i /= 10;
+		j++;
+	}
+	return (j);
+}
 
+char	*ft_itoa(int n)
+{
+	char		*str;
+	long int	nb;
+	int			l;
+	int			j;
+
+	nb = (long int) n;
+	l = ft_numlen(nb);
+	j = -1 ;
+	str = (char *)malloc((sizeof(char) * (l + 1)));
+	if (!str)
+		return (0);
+	str[l--] = '\0';
+	if (nb < 0)
+	{
+		str[0] = '-';
+		nb *= -1;
+		j = 0;
+	}
+	while (l > j)
+	{
+		str[l] = 48 + (nb % 10);
+		nb = nb / 10;
+		l--;
+	}
+	return (str);
+}

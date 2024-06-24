@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:15:12 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/23 20:10:01 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/24 18:48:18 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,24 @@
 
 void print_map(t_game g)
 {
-	int x;
-	int y;
+	int 	x;
+	int 	y;
+	char	*str;
 
-	x = 0;
-	while(x < g.map.len)
+	y = 0;
+	while(y < g.map.h)
 	{
-		y = 0;
-		while(y < g.map.h)
+		x = 0;
+		while(x < g.map.len)
 		{
-			mlx_put_image_to_window(g.mlx, g.win, take_item(g, g.map.mat[y][x]), x * 64, y * 64);
-			y++;
+			mlx_put_image_to_window(g.mlx, g.win, take_item(g, g.map.mat[y][x]), x * 128, y * 128);
+			x++;
 		}
-		x++;
+		y++;
 	}
+	str = ft_itoa(g.nmoves);
+	mlx_string_put(g.mlx, g.win, 128, 128, INT_MAX, str);
+	free(str);
 }
 
 void *take_item(t_game game, char c)

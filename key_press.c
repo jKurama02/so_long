@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 17:15:12 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/23 19:45:53 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/24 18:43:35 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ int key_press(int key, t_game *game)
 {
 	if(key == 65307)
 		ft_exit(game);
+	else if(key == 115)
+		game->nmoves += s_m(game);
+	else if(key == 97)
+		game->nmoves += a_m(game);
 	else if(key == 119)
 		game->nmoves += w_m(game);
 	else if(key == 100)
 		game->nmoves += d_m(game);
-	else if(key == 97)
-		game->nmoves += a_m(game);
-	else if(key == 115)
-		game->nmoves += s_m(game);
 	print_map(*game);
 	return(0);
 }
@@ -35,7 +35,7 @@ int w_m(t_game *game)
 
 	y = game->map.player.posy;
 	x = game->map.player.posx;
-	if(game->map.mat[y - 1][x] != '1' && check_next_move(game, (y -1), x))
+	if(game->map.mat[y - 1][x] != '1' && check_next_move(game, (y - 1), x))
 	{
 		game->map.mat[y][x] = '0';
 		y = (game->map.player.posy - 1);

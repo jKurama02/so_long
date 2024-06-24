@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:09:53 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/19 13:28:05 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/24 18:34:03 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int d_matrix(t_map *map)
 	fil = get_next_line(fd);
 	if(!fil)
 		return(-1);
-	map->len = (ft_strlen(fil) -1);
+	map->len = (ft_strlen(fil) - 1);
 	while(fil)
 	{
 		map->h++;

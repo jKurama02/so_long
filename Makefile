@@ -6,14 +6,14 @@
 #    By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 17:34:16 by anmedyns          #+#    #+#              #
-#    Updated: 2024/06/23 18:37:10 by anmedyns         ###   ########.fr        #
+#    Updated: 2024/06/24 16:27:16 by anmedyns         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PROG = so_long
 
-SRCS    =	set_struct.c mapval.c main.c gnl/get_next_line_utils.c gnl/get_next_line.c \
-			mapval2.c img.c key_press.c
+SRCS    =	set_struct.c main.c mapval.c gnl/get_next_line_utils.c gnl/get_next_line.c \
+			mapval2.c img.c key_press.c printf/ft_printf.c printf/utili.c printf/utili2.c
 
 OBJS     = ${SRCS:.c=.o}
 MAIN    = main.c
