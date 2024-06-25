@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 18:55:47 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/24 19:04:50 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/25 17:14:51 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_game
 int controllo_quadrato(t_game g);
 int d_matrix(t_map *map);
 int	ft_argcheck(t_game *g);
-char **matrice(t_map *map);
+void	matrice(t_map *map);
 int controllo_quadrato(t_game g);
 int validate(t_game *g, char **argv);
 int set_game(t_game *game,char *path);

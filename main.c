@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:15:12 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/24 20:16:42 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/25 18:32:06 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	validate(t_game *g, char **argv)
 	d_matrix(&g->map);
 	matrice(&g->map);
 	if (controllo_quadrato(*g) == -1)
-		return (ft_printf("Errore controllo_quadrato \n"));
+		return (ft_printf("Error square \n"));
 	if (controllo_oggetti(&g->map, &g->item) != 1)
-		return (ft_printf("Errore controllo_oggetti \n"));
+		return (ft_printf("Errore item\n"));
 	if (percorso_ceck(*g) != 1)
-		return (ft_printf("Errore percorso_ceck \n"));
+		return (ft_printf("Error path\n"));
 	return (1);
 }
 
@@ -35,15 +35,11 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_printf("give 2 argument, ty \n");
+		ft_printf("Error: No map file provided");
 		return (-1);
 	}
 	if (validate(&game, argv) != 1)
-	{
-		if (game.map.mat)
-			free_matrix_c(game.map.mat);
 		return (-1);
-	}
 	game.mlx = mlx_init();
 	if (game.mlx == NULL)
 		return (EXIT_FAILURE);

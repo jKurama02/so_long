@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:09:53 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/24 22:45:31 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/25 17:15:16 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_argcheck(t_game *g)
 	return (0);
 }
 
-char	**matrice(t_map *map)
+void	matrice(t_map *map)
 {
 	int		i;
 	int		fd;
@@ -58,7 +58,7 @@ char	**matrice(t_map *map)
 	i = -1;
 	fd = open(map->path, O_RDONLY);
 	if (fd == -1)
-		return (NULL);
+		return ;
 	matrix = (char **)malloc(sizeof(char *) * (map->h + 1));
 	i = 0;
 	while (i < map->h)
@@ -69,7 +69,6 @@ char	**matrice(t_map *map)
 	matrix[map->h] = NULL;
 	close(fd);
 	map->mat = matrix;
-	return (matrix);
 }
 
 int	controllo_quadrato(t_game g)

@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:09:53 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/24 20:20:35 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/25 18:16:54 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ char	**c_mat(t_game g)
 void	percorso_fell(t_game *g, int y, int x)
 {
 	g->map.copy[y][x] = '1';
-	if (g->map.copy[y +1][x] != '1' && g->map.copy[y + 1][x] != 'N')
+	if (g->map.copy[y +1][x] != '1' && g->map.copy[y + 1][x] != 'E')
 		percorso_fell(g, y + 1, x);
-	if (g->map.copy[y - 1][x] != '1' && g->map.copy[y - 1][x] != 'N')
+	if (g->map.copy[y - 1][x] != '1' && g->map.copy[y - 1][x] != 'E')
 		percorso_fell(g, y - 1, x);
-	if (g->map.copy[y][x + 1] != '1' && g->map.copy[y][x + 1] != 'N')
+	if (g->map.copy[y][x + 1] != '1' && g->map.copy[y][x + 1] != 'E')
 		percorso_fell(g, y, x + 1);
-	if (g->map.copy[y][x - 1] != '1' && g->map.copy[y][x - 1] != 'N')
+	if (g->map.copy[y][x - 1] != '1' && g->map.copy[y][x - 1] != 'E')
 		percorso_fell(g, y, x - 1);
 }
 
@@ -68,9 +68,17 @@ int	percorso_ceck(t_game g)
 	while (y < g.map.h)
 	{
 		if (strchr(g.map.copy[y], 'C') != 0)
+		{
+			free_matrix_c(g.map.copy);
+			free_matrix_c(g.map.mat);
 			return (-1);
+		}
 		if (strchr(g.map.copy[y], 'E') != 0)
+		{
+			free_matrix_c(g.map.copy);
+			free_matrix_c(g.map.mat);
 			return (-1);
+		}
 		y++;
 	}
 	free_matrix_c(g.map.copy);
@@ -82,7 +90,9 @@ void	free_matrix_c(char **matrix)
 	int	g;
 
 	g = 0;
-	while (matrix[g] != NULL)
+	if (matrix == NULL)
+		return ;
+	while (matrix[g])
 	{
 		free(matrix[g]);
 		g++;
