@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:09:53 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/25 18:16:54 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/26 19:57:56 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	percorso_ceck(t_game g)
 
 	y = 0;
 	g.map.copy = c_mat(g);
-	percorso_fell(&g, g.map.player.posx, g.map.player.posy);
+	percorso_fell(&g, g.map.player.posy, g.map.player.posx);
 	while (y < g.map.h)
 	{
 		if (strchr(g.map.copy[y], 'C') != 0)
