@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:09:53 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/26 19:57:56 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/06/27 16:01:39 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ char	**c_mat(t_game g)
 void	percorso_fell(t_game *g, int y, int x)
 {
 	g->map.copy[y][x] = '1';
-	if (g->map.copy[y +1][x] != '1' && g->map.copy[y + 1][x] != 'E')
+	if (g->map.copy[y +1][x] != '1')
 		percorso_fell(g, y + 1, x);
-	if (g->map.copy[y - 1][x] != '1' && g->map.copy[y - 1][x] != 'E')
+	if (g->map.copy[y - 1][x] != '1')
 		percorso_fell(g, y - 1, x);
-	if (g->map.copy[y][x + 1] != '1' && g->map.copy[y][x + 1] != 'E')
+	if (g->map.copy[y][x + 1] != '1')
 		percorso_fell(g, y, x + 1);
-	if (g->map.copy[y][x - 1] != '1' && g->map.copy[y][x - 1] != 'E')
+	if (g->map.copy[y][x - 1] != '1')
 		percorso_fell(g, y, x - 1);
 }
 
