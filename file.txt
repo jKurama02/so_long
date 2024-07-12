@@ -1,0 +1,9 @@
+norminette .h
+
+fixare leanks
+
+fixare controlli mappa vuota
+
+usare tester angy git_hub
+
+EXIT quando usi OPEN

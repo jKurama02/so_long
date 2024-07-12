@@ -19,20 +19,19 @@
 # include "gnl/get_next_line.h"
 # include "mlx/mlx.h"
 
-
 typedef struct s_item
 {
 	int	c;
-	int e;
-	int p;
+	int	e;
+	int	p;
 }			t_item;
 
 typedef struct s_dim
 {
-	void *img;
-	char type;
-	int	posx;
-	int	posy;
+	void	*img;
+	char	type;
+	int		posx;
+	int		posy;
 }			t_dim;
 
 typedef struct s_map
@@ -63,32 +62,31 @@ typedef struct s_game
 	int		aux_rand;
 }				t_game;
 
-int controllo_quadrato(t_game g);
-int d_matrix(t_map *map);
-int	ft_argcheck(t_game *g);
+int		controllo_quadrato(t_game g);
+int		d_matrix(t_map *map);
+int		ft_argcheck(t_game *g);
 void	matrice(t_map *map);
-int controllo_quadrato(t_game g);
-int validate(t_game *g, char **argv);
-int set_game(t_game *game,char *path);
-void set_item(t_item *item);
-int controllo_oggetti(t_map *map, t_item *item);
-int letter_c(t_map *map, int x, int y, t_item *item);
-void free_matrix_c(char **matrix);
-int percorso_ceck(t_game g);
-void percorso_fell(t_game *g, int x, int y);
-char **c_mat(t_game g);
-void print_map(t_game g);
-void *take_item(t_game game, char c);
-int img_init(t_game *g);
-int ft_exit(t_game *g);
-int check_next_move(t_game *g, int y, int x);
-int key_press(int key, t_game *game);
-int w_m(t_game *game);
-int a_m(t_game *game);
-int s_m(t_game *game);
-int d_m(t_game *game);
-int	ft_numlen(long int i);
+int		controllo_quadrato(t_game g);
+int		validate(t_game *g, char **argv);
+int		set_game(t_game *game, char *path);
+void	set_item(t_item *item);
+int		controllo_oggetti(t_map *map, t_item *item);
+int		letter_c(t_map *map, int x, int y, t_item *item);
+void	free_matrix_c(char **matrix);
+int		percorso_ceck(t_game g);
+void	percorso_fell(t_game *g, int x, int y);
+char	**c_mat(t_game g);
+void	print_map(t_game g);
+void	*take_item(t_game game, char c);
+int		img_init(t_game *g);
+int		ft_exit(t_game *g);
+int		check_next_move(t_game *g, int y, int x);
+int		key_press(int key, t_game *game);
+int		w_m(t_game *game);
+int		a_m(t_game *game);
+int		s_m(t_game *game);
+int		d_m(t_game *game);
+int		ft_numlen(long int i);
 char	*ft_itoa(int n);
-
 
 #endif
