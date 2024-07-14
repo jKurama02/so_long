@@ -19,9 +19,13 @@ int	d_matrix(t_map *map)
 	char	*fil_free;
 
 	fd = open(map->path, O_RDONLY);
+	if(fd == -1)
+		return (-1);
 	fil = get_next_line(fd);
 	if (!fil)
+	{
 		return (-1);
+	}
 	map->len = (ft_strlen(fil) - 1);
 	while (fil)
 	{
