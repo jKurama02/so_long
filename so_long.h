@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 18:55:47 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/25 17:14:51 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/08/27 13:05:26 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ typedef struct s_game
 	int		w;
 	int		h;
 	int		nmoves;
-	int		loop;
-	int		aux_rand;
 }				t_game;
 
 int		controllo_quadrato(t_game g);

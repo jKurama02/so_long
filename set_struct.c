@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:31:27 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/24 20:20:52 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/08/27 13:05:34 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int	set_game(t_game *game, char *path)
 	game->w = 0;
 	game->h = 0;
 	game->nmoves = 0;
-	game->loop = 0;
-	game->aux_rand = 0;
 	return (1);
 }
 
