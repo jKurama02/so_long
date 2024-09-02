@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:09:53 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/08/27 13:27:05 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/09/02 19:51:20 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	matrice(t_map *map)
 	matrix[map->h] = NULL;
 	close(fd);
 	map->mat = matrix;
-	free_matrix_c(map->mat);
+	printf("%s\n", map->mat[2]);
 }
 
 int	controllo_quadrato(t_game g)

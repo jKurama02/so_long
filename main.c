@@ -6,7 +6,7 @@
 /*   By: anmedyns <anmedyns@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:15:12 by anmedyns          #+#    #+#             */
-/*   Updated: 2024/06/25 18:32:06 by anmedyns         ###   ########.fr       */
+/*   Updated: 2024/09/02 19:53:19 by anmedyns         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ int	main(int argc, char **argv)
 		return (-1);
 	}
 	if (validate(&game, argv) != 1)
+	{
+		free_matrix_c(game.map.mat);
 		return (-1);
+	}
 	game.mlx = mlx_init();
 	if (game.mlx == NULL)
 		return (EXIT_FAILURE);
@@ -50,6 +53,7 @@ int	main(int argc, char **argv)
 	mlx_hook(game.win, 2, 1L << 0, key_press, &game);
 	mlx_hook(game.win, 17, 1L << 0, ft_exit, &game);
 	mlx_loop(game.mlx);
+	free_matrix_c(game.map.mat);
 	return (0);
 }
 
